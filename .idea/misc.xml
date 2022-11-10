@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/drawable/bg_fab_text.xml" value="0.1775" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/drawable/bg_searchview.xml" value="0.1" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/drawable/bg_trial.xml" value="0.1775" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/drawable/curve_bg.xml" value="0.23" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/drawable/fab_text_bg.xml" value="0.169" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/drawable/ic_fab_draft_svg.xml" value="0.2385" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/drawable/icon_certificate.xml" value="0.2385" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/drawable/icon_download.xml" value="0.1765" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/drawable/icon_draft.xml" value="0.2385" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/drawable/icon_edit.xml" value="0.1765" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/drawable/icon_more.xml" value="0.2125" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/drawable/icon_new.xml" value="0.2385" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/drawable/icon_share.xml" value="0.1765" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/drawable/icon_share_white.xml" value="0.169" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/_00_trial.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/_01_certificateinfo.xml" value="0.1" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/_02__shipper.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/_02_shipper.xml" value="0.2" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/_03_notify.xml" value="0.264" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/_04_goods_description.xml" value="0.2" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/_05_quantity.xml" value="0.1" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/_06_quality_check.xml" value="0.1" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/_07_survey_report.xml" value="0.1" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/_08_other.xml" value="0.1" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/activity_certificate_details.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/activity_data_form.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/activity_draft_details.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/activity_entry.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/activity_excel.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/activity_generate_certificate.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/activity_home.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/activity_home_basic.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/activity_home_stylish.xml" value="0.136" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/activity_list.xml" value="0.3030503978779841" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/activity_pdf_viewer.xml" value="0.136" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/activity_show_data.xml" value="0.2" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/activity_show_file_content.xml" value="0.2" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/activity_sign_in.xml" value="0.2" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/activity_splash.xml" value="0.1838392475416845" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/activity_upload.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/content_show_data.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/curve_bg.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/custom_dialog_camera_gallery.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/custom_dialog_open_doc.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/custom_layout.xml" value="0.2" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/custom_layout2.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/custom_layout_2.xml" value="0.264" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/custom_layout_card.xml" value="0.2" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/custom_layout_card_basic.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/custom_layout_card_small.xml" value="0.2" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/custom_layout_card_stylish.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/fragment_c_01_certificate_info.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/fragment_c_01_certificateinfo.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/fragment_c_02_shipper.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/fragment_c_03_notify.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/fragment_c_04_goods_description.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/fragment_c_05_quantity.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/fragment_c_06_quality_check.xml" value="0.2" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/fragment_c_07_survey_report.xml" value="0.2" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/fragment_c_08_other.xml" value="0.264" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/fragment_d_01__draft_info.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/fragment_d_01_draft_info.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/fragment_d_02_shipper_consignee_notify.xml" value="0.2" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/fragment_d_03_locations.xml" value="0.2" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/fragment_d_04_goods_description.xml" value="0.2" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/fragment_d_05_other.xml" value="0.2" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/layout/fragment_first.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/menu/history_menu.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/menu/popup_menu.xml" value="0.195382642154767" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/CICLabsIndia/app/src/main/res/menu/share_menu.xml" value="0.19452757588713127" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

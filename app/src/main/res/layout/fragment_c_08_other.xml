@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_other"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".certificateDetails.C_08_Other">
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="clear_text"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.250">
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:hint="Cleanliness Statement"
+            android:text="WE HEREBY CERTIFY THAT CONTAINERS OF ABOVE SHIPMENT WAS VISUALLY CHECKED PRIOR TO LOADING AND APPARENTLY FOUND CLEAN AND FIT AT THE TIME OF LOADING."
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="clear_text"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.350">
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:hint="Quality Statement"
+            android:text="SAMPLING FOR QUALITY WAS PERFORMEDAS PER INDIA CEREAL GRADING RULES AND QUALITY DETERMINATION WAS PERFORMED BY VISUAL ANALYSIS OFA COMPOSITE REPRESENTATIVE SAMPLE, AVERAGE RESULTS ARE AS UNDER"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="clear_text"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.450">
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:hint="Packing"
+            android:text="IN NEW SINGLE POLYPROPYLENE BAGS WEIGHING 50 KGS NET WEIGHT AND TARE WEIGHT OF ABOUT 140 GRAMS. "
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="clear_text"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.550">
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:hint="Weight"
+            android:text="AS PER OUR RANDOM INSPECTION AVERAGE WEIGHT PER BAGS IS FOUND AS 50.00 KGS NET"
+            android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="clear_text"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.650">
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:hint="Conclusion"
+            android:text="THE ABOVE INSPECTION RESULTS VALID AT TIME AND PLACE OF INSPECTION"
+            android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/buttonNext"
+        android:text="Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15sp"
+        android:layout_marginBottom="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
