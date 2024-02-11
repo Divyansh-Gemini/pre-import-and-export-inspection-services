@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
-    android:paddingVertical="20sp"
-    android:gravity="center"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:background="@color/blue"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingVertical="20sp">
 
     <ImageButton
         android:id="@+id/imageButton1"
-        android:background="@drawable/image_camera"
         android:layout_width="150sp"
-        android:layout_height="150sp"/>
+        android:layout_height="150sp"
+        android:background="@drawable/image_camera"
+        android:contentDescription="@string/capture_using_camera" />
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:background="@drawable/image_gallery"
         android:layout_width="150sp"
-        android:layout_height="150sp"/>
+        android:layout_height="150sp"
+        android:background="@drawable/image_gallery"
+        android:contentDescription="@string/select_from_gallery" />
 
 </LinearLayout>

@@ -15,7 +15,6 @@ import android.widget.Toast;
 import com.ciclabsindia.cic.GenerateDraftActivity;
 import com.ciclabsindia.cic.R;
 import com.ciclabsindia.cic.database.DatabaseHandler;
-import com.ciclabsindia.cic.model.Certificate;
 import com.ciclabsindia.cic.model.Document;
 import com.ciclabsindia.cic.model.Draft;
 
@@ -68,57 +67,55 @@ public class D_05_Other extends Fragment {
         editText3.setText(packing);
         editText4.setText(bl_no);
 
-        btn_next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                invoice_no_pk = editText1.getText().toString().toUpperCase();
-                invoice_date = editText2.getText().toString();
-                packing = editText3.getText().toString().toUpperCase();
-                bl_no = editText4.getText().toString().toUpperCase();
+        btn_next.setOnClickListener(v -> {
+            invoice_no_pk = editText1.getText().toString().toUpperCase();
+            invoice_date = editText2.getText().toString();
+            packing = editText3.getText().toString().toUpperCase();
+            bl_no = editText4.getText().toString().toUpperCase();
 
-                if (invoice_no_pk.isEmpty())
-                    invoice_no_pk = String.valueOf(System.currentTimeMillis());
+            if (invoice_no_pk.isEmpty())
+                invoice_no_pk = String.valueOf(System.currentTimeMillis());
 
-                //##################### SETTING THE CURRENT DATE-TIME AS "LAST_EDITED_DATE_TIME #####################
-                Calendar ca = Calendar.getInstance();
-                int yyyy = ca.get(Calendar.YEAR);
-                int mth = ca.get(Calendar.MONTH)+1;
-                int dt = ca.get(Calendar.DATE);
-                int hour = ca.get(Calendar.HOUR);
-                int mts = ca.get(Calendar.MINUTE);
+            //##################### SETTING THE CURRENT DATE-TIME AS "LAST_EDITED_DATE_TIME #####################
+            Calendar ca = Calendar.getInstance();
+            int yyyy = ca.get(Calendar.YEAR);
+            int mth = ca.get(Calendar.MONTH)+1;
+            int dt = ca.get(Calendar.DATE);
+            int hour = ca.get(Calendar.HOUR);
+            int mts = ca.get(Calendar.MINUTE);
 
-                // Formatting month, date, and minutes
-                String mm, dd, minutes;
-                if (mth<10) mm = "0" + mth;
-                else        mm = "" + mth;
-                if (dt<10)  dd = "0" + dt;
-                else        dd = "" + dt;
-                if (mts<10) minutes = "0" + mts;
-                else        minutes = "" + mts;
-                last_edited_date_time = yyyy + "-" + mm + "-" + dd + "  " + hour + ":" + minutes;
+            // Formatting month, date, and minutes
+            String mm, dd, minutes;
+            if (mth<10) mm = "0" + mth;
+            else        mm = String.valueOf(mth);
+            if (dt<10)  dd = "0" + dt;
+            else        dd = String.valueOf(dt);
+            if (mts<10) minutes = "0" + mts;
+            else        minutes = String.valueOf(mts);
+            last_edited_date_time = yyyy + "-" + mm + "-" + dd + "  " + hour + ":" + minutes;
 
-                //##################### UPDATING DATA IN DRAFT TABLE #####################
-                Draft draft = new Draft(certificate_no, report_no, date, shipper_name, shipper_address,
-                        consignee_name, consignee_address, notify_name, notify_address, port_of_loading,
-                        port_of_discharge, final_destination, description_of_goods, gross_weight, net_weight,
-                        total_no_of_bags, invoice_no_pk, invoice_date, packing, bl_no, last_edited_date_time);
+            //##################### UPDATING DATA IN DRAFT TABLE #####################
+            Draft draft = new Draft(certificate_no, report_no, date, shipper_name, shipper_address,
+                    consignee_name, consignee_address, notify_name, notify_address, port_of_loading,
+                    port_of_discharge, final_destination, description_of_goods, gross_weight, net_weight,
+                    total_no_of_bags, invoice_no_pk, invoice_date, packing, bl_no, last_edited_date_time);
 
-                long draftResult = handler.updateDraft(draft, old_invoice_no);
-                if (draftResult > 0);
-                    //Toast.makeText(getActivity(), "Draft updated!!", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getActivity(), "Query problem!!", Toast.LENGTH_SHORT).show();
+            long draftResult = handler.updateDraft(draft, old_invoice_no);
+            if (draftResult > 0);
+                //Toast.makeText(getActivity(), "Draft updated!!", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getActivity(), "Query problem!!", Toast.LENGTH_SHORT).show();
 
-                //##################### UPDATING DATA IN DOCUMENT TABLE #####################
-                Document document = new Document("D_" + invoice_no_pk, "draft", shipper_name, invoice_no_pk, last_edited_date_time);
+            //##################### UPDATING DATA IN DOCUMENT TABLE #####################
+            Document document = new Document("D_" + invoice_no_pk, "draft", shipper_name, invoice_no_pk, last_edited_date_time);
 
-                long documentResult = handler.updateDocument(document, old_invoice_no);
-                if (documentResult > 0);
-                    //Toast.makeText(getActivity(), "Document updated!!", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getActivity(), "Query problem!!", Toast.LENGTH_SHORT).show();
+            long documentResult = handler.updateDocument(document, old_invoice_no);
+            if (documentResult > 0);
+                //Toast.makeText(getActivity(), "Document updated!!", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getActivity(), "Query problem!!", Toast.LENGTH_SHORT).show();
 
-                //##################### INSERTING DATA TO DRAFT TABLE #####################
+            //##################### INSERTING DATA TO DRAFT TABLE #####################
 //                Draft draft = new Draft(certificate_no, report_no, date, shipper_name, shipper_address,
 //                        consignee_name, consignee_address, notify_name, notify_address, port_of_loading,
 //                        port_of_discharge, final_destination, description_of_goods, gross_weight, net_weight,
@@ -130,7 +127,7 @@ public class D_05_Other extends Fragment {
 //                    Toast.makeText(getActivity(), "Query problem!!", Toast.LENGTH_SHORT).show();
 
 
-                //##################### INSERTING DATA TO DOCUMENT TABLE #####################
+            //##################### INSERTING DATA TO DOCUMENT TABLE #####################
 //                Document document = new Document("D_" + invoice_no_pk, "draft", shipper_name, invoice_no_pk, last_edited_date_time);
 //                long documentResult = handler.insertDocument(document);
 //                if (documentResult > 0)
@@ -139,11 +136,10 @@ public class D_05_Other extends Fragment {
 //                    Toast.makeText(getActivity(), "Query problem!!", Toast.LENGTH_SHORT).show();
 
 
-                //##################### SENDING INVOICE NO. TO DRAFT GENERATOR #####################
-                Intent i = new Intent(getActivity(), GenerateDraftActivity.class);
-                i.putExtra("invoice_no", invoice_no_pk);
-                startActivity(i);
-            }
+            //##################### SENDING INVOICE NO. TO DRAFT GENERATOR #####################
+            Intent i = new Intent(getActivity(), GenerateDraftActivity.class);
+            i.putExtra("invoice_no", invoice_no_pk);
+            startActivity(i);
         });
         return myView;
     }

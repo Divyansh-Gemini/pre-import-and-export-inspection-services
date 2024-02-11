@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -18,6 +20,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 public class GenerateExcelActivity extends AppCompatActivity {
     String invoice_no;
@@ -361,7 +364,6 @@ public class GenerateExcelActivity extends AppCompatActivity {
         cell.setCellValue("(Technical Manager)");
         sheet.setColumnWidth(3,(10*300));
 
-
         // Saving Excel
         File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
         File file = new File(dir, "D_" + invoice_no.replace("/", "%") + ".xls");
@@ -385,24 +387,33 @@ public class GenerateExcelActivity extends AppCompatActivity {
     }
 
     public void open_file(File file) {
-        // Get URI & MIME type of file
+        // URI & MIME type of file
         Uri uri = FileProvider.getUriForFile(this, "com.ciclabsindia.cic", file);
-        String mime = getContentResolver().getType(uri);
+//        String mime = getContentResolver().getType(uri);
+        String mime = "application/vnd.ms-excel";
+
+        // Check if any app to open Excel file
+        Intent checkIntent = new Intent(Intent.ACTION_VIEW);
+        checkIntent.setDataAndType(uri, mime);
+        PackageManager packageManager = getPackageManager();
+        List<ResolveInfo> resolvedActivities = packageManager.queryIntentActivities(checkIntent, 0);
+        if (resolvedActivities.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "No app to open Excel file", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // Open file with user selected app
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_VIEW);
-        intent.setDataAndType(uri, mime);
-        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        startActivity(intent);
+        Intent openIntent = new Intent();
+        openIntent.setAction(Intent.ACTION_VIEW);
+        openIntent.setDataAndType(uri, mime);
+        openIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(openIntent);
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-
         // Going back to Home Activity on Restarting this Activity
-        Intent i = new Intent(GenerateExcelActivity.this, HomeActivity.class);
-        startActivity(i);
+        startActivity(new Intent(GenerateExcelActivity.this, HomeActivity.class));
     }
 }

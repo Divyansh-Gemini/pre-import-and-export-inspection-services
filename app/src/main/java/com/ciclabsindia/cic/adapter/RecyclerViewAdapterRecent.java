@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -94,139 +93,115 @@ public class RecyclerViewAdapterRecent extends RecyclerView.Adapter<RecyclerView
         holder.t3.setText(date_time.get(position));
 
         //##################### Opening PDF of a Document from Recycler View #####################
-        holder.card.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (doc_type.equals("draft")) {
-                    Dialog dlg = new Dialog(context);
-                    dlg.setContentView(R.layout.custom_dialog_open_doc);
-                    dlg.show();
+        holder.card.setOnClickListener(v -> {
+            if (doc_type.equals("draft")) {
+                Dialog dlg = new Dialog(context);
+                dlg.setContentView(R.layout.custom_dialog_open_doc);
+                dlg.show();
 
-                    LinearLayout pdf_btn = dlg.findViewById(R.id.open_pdf);
-                    LinearLayout excel_btn = dlg.findViewById(R.id.open_excel);
+                LinearLayout pdf_btn = dlg.findViewById(R.id.open_pdf);
+                LinearLayout excel_btn = dlg.findViewById(R.id.open_excel);
 
-                    // Opening Draft PDF
-                    pdf_btn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent i = new Intent(context, GenerateDraftActivity.class);
-                            i.putExtra("invoice_no", invoice_no);
-                            context.startActivity(i);
-                        }
-                    });
-
-                    // Opening Draft Excel
-                    excel_btn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent i = new Intent(context, GenerateExcelActivity.class);
-                            i.putExtra("invoice_no", invoice_no);
-                            context.startActivity(i);
-                        }
-                    });
-                }
-
-                // Opening Certificate PDF
-                else if (doc_type.equals("certificate")) {
-                    Intent i = new Intent(context, GenerateCertificateActivity.class);
+                // Opening Draft PDF
+                pdf_btn.setOnClickListener(v1 -> {
+                    Intent i = new Intent(context, GenerateDraftActivity.class);
                     i.putExtra("invoice_no", invoice_no);
                     context.startActivity(i);
-                }
-            }
-        });
+                });
 
-        //##################### Edit Button #####################
-        holder.btn_edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = null;
-                if (doc_type.equalsIgnoreCase("draft"))
-                    i = new Intent(context, DraftDetailsActivity.class);
-                else if (doc_type.equalsIgnoreCase("certificate"))
-                    i = new Intent(context, CertificateDetailsActivity.class);
+                // Opening Draft Excel
+                excel_btn.setOnClickListener(v12 -> {
+                    Intent i = new Intent(context, GenerateExcelActivity.class);
+                    i.putExtra("invoice_no", invoice_no);
+                    context.startActivity(i);
+                });
+            }
+
+            // Opening Certificate PDF
+            else if (doc_type.equals("certificate")) {
+                Intent i = new Intent(context, GenerateCertificateActivity.class);
                 i.putExtra("invoice_no", invoice_no);
                 context.startActivity(i);
             }
         });
 
+        //##################### Edit Button #####################
+        holder.btn_edit.setOnClickListener(v -> {
+            Intent i = null;
+            if (doc_type.equalsIgnoreCase("draft"))
+                i = new Intent(context, DraftDetailsActivity.class);
+            else if (doc_type.equalsIgnoreCase("certificate"))
+                i = new Intent(context, CertificateDetailsActivity.class);
+            i.putExtra("invoice_no", invoice_no);
+            context.startActivity(i);
+        });
+
         //##################### Sharing Button #####################
-        holder.btn_share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (doc_type.equals("draft")) {
-                    PopupMenu p = new PopupMenu(context, holder.btn_share);
-                    p.getMenuInflater().inflate(R.menu.share_menu, p.getMenu());
-                    p.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem item) {
-                            File file = null;
-                            Intent i = new Intent(Intent.ACTION_SEND);
-
-                            switch (item.getItemId()) {
-                                // Share Draft PDF
-                                case R.id.item1:
-                                    file = new File(context.getExternalFilesDir(null), "/" + doc_id.replace("/", "%") + ".pdf");
-                                    i.setType("application/pdf");
-                                    break;
-
-                                // Share Draft Excel
-                                case R.id.item2:
-                                    file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "/" + doc_id.replace("/", "%") + ".xls");
-                                    i.setType("application/vnd.ms-excel");
-                                    break;
-                            }
-
-                            // Sharing Draft
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                                Uri uri = FileProvider.getUriForFile(context, "com.ciclabsindia.cic", file);
-                                i.putExtra(Intent.EXTRA_STREAM, uri);
-                            } else
-                                i.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
-                            context.startActivity(i);
-                            return false;
-                        }
-                    });
-                    p.show();
-                }
-                else if (doc_type.equals("certificate")) {
+        holder.btn_share.setOnClickListener(v -> {
+            if (doc_type.equals("draft")) {
+                PopupMenu p = new PopupMenu(context, holder.btn_share);
+                p.getMenuInflater().inflate(R.menu.share_menu, p.getMenu());
+                p.setOnMenuItemClickListener(item -> {
+                    File file = null;
                     Intent i = new Intent(Intent.ACTION_SEND);
-                    File file = new File(context.getExternalFilesDir(null), "/" + doc_id.replace("/", "%") + ".pdf");
-                    i.setType("application/pdf");
+
+                    switch (item.getItemId()) {
+                        // Share Draft PDF
+                        case R.id.item1:
+                            file = new File(context.getExternalFilesDir(null), "/" + doc_id.replace("/", "%") + ".pdf");
+                            i.setType("application/pdf");
+                            break;
+
+                        // Share Draft Excel
+                        case R.id.item2:
+                            file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "/" + doc_id.replace("/", "%") + ".xls");
+                            i.setType("application/vnd.ms-excel");
+                            break;
+                    }
+
+                    // Sharing Draft
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                         Uri uri = FileProvider.getUriForFile(context, "com.ciclabsindia.cic", file);
                         i.putExtra(Intent.EXTRA_STREAM, uri);
                     } else
                         i.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
                     context.startActivity(i);
-                }
+                    return false;
+                });
+                p.show();
+            }
+            else if (doc_type.equals("certificate")) {
+                Intent i = new Intent(Intent.ACTION_SEND);
+                File file = new File(context.getExternalFilesDir(null), "/" + doc_id.replace("/", "%") + ".pdf");
+                i.setType("application/pdf");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    Uri uri = FileProvider.getUriForFile(context, "com.ciclabsindia.cic", file);
+                    i.putExtra(Intent.EXTRA_STREAM, uri);
+                } else
+                    i.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+                context.startActivity(i);
             }
         });
 
         //##################### More Button #####################
-        holder.btn_more.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu p = new PopupMenu(context, holder.btn_more);
-                p.getMenuInflater().inflate(R.menu.more_menu, p.getMenu());
-                p.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        switch (item.getItemId())
-                        {
-                            case R.id.item1:
-                                long result = handler.deleteDocument(invoice_no, doc_type);
-                                if (result > 0)
-                                    Toast.makeText(context, "Record deleted", Toast.LENGTH_SHORT).show();
-                                else
-                                    Toast.makeText(context, "Unable to Delete!!", Toast.LENGTH_SHORT).show();
-                                notifyItemRemoved(holder.getAdapterPosition());
-                                break;
-                        }
-                        return false;
-                    }
-                });
-                p.show();
-            }
+        holder.btn_more.setOnClickListener(v -> {
+            PopupMenu p = new PopupMenu(context, holder.btn_more);
+            p.getMenuInflater().inflate(R.menu.more_menu, p.getMenu());
+            p.setOnMenuItemClickListener(item -> {
+                switch (item.getItemId())
+                {
+                    case R.id.item1:
+                        long result = handler.deleteDocument(invoice_no, doc_type);
+                        if (result > 0)
+                            Toast.makeText(context, "Record deleted", Toast.LENGTH_SHORT).show();
+                        else
+                            Toast.makeText(context, "Unable to Delete!!", Toast.LENGTH_SHORT).show();
+                        notifyItemRemoved(holder.getAdapterPosition());
+                        break;
+                }
+                return false;
+            });
+            p.show();
         });
     }
 

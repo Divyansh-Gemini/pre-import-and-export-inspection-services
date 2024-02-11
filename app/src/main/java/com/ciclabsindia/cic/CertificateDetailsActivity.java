@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.ciclabsindia.cic.certificateDetails.C_01_CertificateInfo;
-import com.ciclabsindia.cic.draftDetails.D_01_DraftInfo;
 
 public class CertificateDetailsActivity extends AppCompatActivity {
 

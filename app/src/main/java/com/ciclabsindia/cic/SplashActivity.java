@@ -13,15 +13,10 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-
         //##################### AFTER 1250 MilliSecs, HOME ACTIVITY WILL START #####################
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent i = new Intent(SplashActivity.this, HomeActivity.class);
-                startActivity(i);
-                finish();
-            }
+        new Handler().postDelayed(() -> {
+            startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+            finish();
         }, 1250);
     }
 }

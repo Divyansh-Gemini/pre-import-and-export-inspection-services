@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/bg_goods_description"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_goods_description"
     tools:context=".draftDetails.D_04_GoodsDescription">
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:endIconMode="clear_text"
         android:layout_width="300sp"
         android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,15 +21,15 @@
             android:id="@+id/editText1"
             android:layout_width="300sp"
             android:layout_height="wrap_content"
-            android:hint="Description of Goods"
+            android:hint="@string/description_of_goods"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:endIconMode="clear_text"
         android:layout_width="300sp"
         android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,15 +39,15 @@
             android:id="@+id/editText2"
             android:layout_width="300sp"
             android:layout_height="wrap_content"
-            android:hint="Total Gross Weight"
+            android:hint="@string/total_gross_weight"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:endIconMode="clear_text"
         android:layout_width="300sp"
         android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,15 +57,15 @@
             android:id="@+id/editText3"
             android:layout_width="300sp"
             android:layout_height="wrap_content"
-            android:hint="Total Net Weight"
+            android:hint="@string/total_net_weight"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:endIconMode="clear_text"
         android:layout_width="300sp"
         android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,16 +75,16 @@
             android:id="@+id/editText4"
             android:layout_width="300sp"
             android:layout_height="wrap_content"
-            android:hint="Total no. of Bags"
+            android:hint="@string/total_no_of_bags"
             android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/buttonNext"
-        android:text="Next"
+        android:text="@string/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="15sp"
+        android:layout_marginEnd="15sp"
         android:layout_marginBottom="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>

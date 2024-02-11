@@ -14,7 +14,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ciclabsindia.cic.adapter.RecyclerViewAdapterHistory;
 import com.ciclabsindia.cic.adapter.RecyclerViewAdapterRecent;
@@ -40,10 +39,10 @@ public class HomeActivity extends AppCompatActivity {
 
     Integer[] icon = {R.drawable.image_certificate,
                       R.drawable.image_draft};
-    ArrayList<String> doc_type = new ArrayList<String>();
-    ArrayList<String> invoice_no = new ArrayList<String>();
-    ArrayList<String> shipper_name = new ArrayList<String>();
-    ArrayList<String> date_time = new ArrayList<String>();
+    ArrayList<String> doc_type = new ArrayList<>();
+    ArrayList<String> invoice_no = new ArrayList<>();
+    ArrayList<String> shipper_name = new ArrayList<>();
+    ArrayList<String> date_time = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -173,31 +172,25 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        newDraftFAB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, UploadActivity.class);
-                i.putExtra("doc_type", "draft");
-                startActivity(i);
-            }
+        newDraftFAB.setOnClickListener(v -> {
+            Intent i = new Intent(HomeActivity.this, UploadActivity.class);
+            i.putExtra("doc_type", "draft");
+            startActivity(i);
         });
 
-        newCertificateFAB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, UploadActivity.class);
-                i.putExtra("doc_type", "certificate");
-                startActivity(i);
-            }
+        newCertificateFAB.setOnClickListener(v -> {
+            Intent i = new Intent(HomeActivity.this, UploadActivity.class);
+            i.putExtra("doc_type", "certificate");
+            startActivity(i);
         });
     }
 
     //##################### CODE FOR SEARCHING #####################
     private void searchDocument(String newText) {
-        RecyclerViewAdapterRecent adapter1 = new RecyclerViewAdapterRecent(this, icon, doc_type, invoice_no, shipper_name, date_time);
-        recyclerViewRecent.setLayoutManager(new LinearLayoutManager(this));
+        RecyclerViewAdapterHistory adapter1 = new RecyclerViewAdapterHistory(this, icon, doc_type, invoice_no, shipper_name, date_time);
+        recyclerViewHistory.setLayoutManager(new LinearLayoutManager(this));
         adapter1.clearList();
-        recyclerViewRecent.setAdapter(adapter1);
+        recyclerViewHistory.setAdapter(adapter1);
 
         List<Document> list = handler.getSearchedDocuments(newText);
         for (Document document : list) {
@@ -207,9 +200,9 @@ public class HomeActivity extends AppCompatActivity {
             date_time.add(document.getLast_edited_date_time_fk());
         }
 
-        RecyclerViewAdapterRecent adapter2 = new RecyclerViewAdapterRecent(this, icon, doc_type, invoice_no, shipper_name, date_time);
-        recyclerViewRecent.setLayoutManager(new LinearLayoutManager(this));
-        recyclerViewRecent.setAdapter(adapter2);
+        RecyclerViewAdapterHistory adapter2 = new RecyclerViewAdapterHistory(this, icon, doc_type, invoice_no, shipper_name, date_time);
+        recyclerViewHistory.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewHistory.setAdapter(adapter2);
     }
 
     @Override

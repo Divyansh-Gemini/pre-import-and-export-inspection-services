@@ -13,9 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.ciclabsindia.cic.R;
-import com.ciclabsindia.cic.certificateDetails.C_03_Notify;
-import com.ciclabsindia.cic.database.DatabaseHandler;
-import com.ciclabsindia.cic.model.Draft;
 
 public class D_02_ShipperConsigneeNotify extends Fragment {
     EditText editText1, editText2, editText3, editText4, editText5, editText6;
@@ -65,47 +62,44 @@ public class D_02_ShipperConsigneeNotify extends Fragment {
         editText5.setText(notify_name);
         editText6.setText(notify_address);
 
-        btn_next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                shipper_name = editText1.getText().toString().toUpperCase();
-                shipper_address = editText2.getText().toString().toUpperCase();
-                consignee_name = editText3.getText().toString().toUpperCase();
-                consignee_address = editText4.getText().toString().toUpperCase();
-                notify_name = editText5.getText().toString().toUpperCase();
-                notify_address = editText6.getText().toString().toUpperCase();
+        btn_next.setOnClickListener(v -> {
+            shipper_name = editText1.getText().toString().toUpperCase();
+            shipper_address = editText2.getText().toString().toUpperCase();
+            consignee_name = editText3.getText().toString().toUpperCase();
+            consignee_address = editText4.getText().toString().toUpperCase();
+            notify_name = editText5.getText().toString().toUpperCase();
+            notify_address = editText6.getText().toString().toUpperCase();
 
-                //##################### SENDING DATA TO NEXT FRAGMENT #####################
-                D_03_Locations frg = new D_03_Locations();
-                Bundle b = new Bundle();
-                b.putString("certificate_no", certificate_no);
-                b.putString("report_no", report_no);
-                b.putString("date", date);
-                b.putString("shipper_name", shipper_name);
-                b.putString("shipper_address", shipper_address);
-                b.putString("consignee_name", consignee_name);
-                b.putString("consignee_address", consignee_address);
-                b.putString("notify_name", notify_name);
-                b.putString("notify_address", notify_address);
-                b.putString("port_of_loading", port_of_loading);
-                b.putString("port_of_discharge", port_of_discharge);
-                b.putString("final_destination", final_destination);
-                b.putString("description_of_goods", description_of_goods);
-                b.putString("gross_weight", gross_weight);
-                b.putString("net_weight", net_weight);
-                b.putString("total_no_of_bags", total_no_of_bags);
-                b.putString("invoice_no_pk", invoice_no_pk);
-                b.putString("invoice_date", invoice_date);
-                b.putString("packing", packing);
-                b.putString("bl_no", bl_no);
-                frg.setArguments(b);
+            //##################### SENDING DATA TO NEXT FRAGMENT #####################
+            D_03_Locations frg = new D_03_Locations();
+            Bundle b1 = new Bundle();
+            b1.putString("certificate_no", certificate_no);
+            b1.putString("report_no", report_no);
+            b1.putString("date", date);
+            b1.putString("shipper_name", shipper_name);
+            b1.putString("shipper_address", shipper_address);
+            b1.putString("consignee_name", consignee_name);
+            b1.putString("consignee_address", consignee_address);
+            b1.putString("notify_name", notify_name);
+            b1.putString("notify_address", notify_address);
+            b1.putString("port_of_loading", port_of_loading);
+            b1.putString("port_of_discharge", port_of_discharge);
+            b1.putString("final_destination", final_destination);
+            b1.putString("description_of_goods", description_of_goods);
+            b1.putString("gross_weight", gross_weight);
+            b1.putString("net_weight", net_weight);
+            b1.putString("total_no_of_bags", total_no_of_bags);
+            b1.putString("invoice_no_pk", invoice_no_pk);
+            b1.putString("invoice_date", invoice_date);
+            b1.putString("packing", packing);
+            b1.putString("bl_no", bl_no);
+            frg.setArguments(b1);
 
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.draftDetails, frg);
-                ft.addToBackStack("");
-                ft.commit();
-            }
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.draftDetails, frg);
+            ft.addToBackStack("");
+            ft.commit();
         });
         return myView;
     }

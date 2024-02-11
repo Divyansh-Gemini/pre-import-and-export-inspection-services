@@ -8,6 +8,6 @@ Created an Android mobile app for an inspection company to automate the manual t
 - User can also search documents by Invoice No. and Shipper Name.
 
 ## Technologies used
-- **Frontend** - XML
-- **Backend** - Java & Python
-- **Database** - SQLite Database
+- **UI** - Android Views using XML
+- **Business Logic** - Java & Python
+- **Database** - SQLite Database (Local storage)

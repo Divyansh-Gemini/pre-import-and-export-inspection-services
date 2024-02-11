@@ -188,7 +188,6 @@ public class GenerateCertificateActivity extends AppCompatActivity {
         super.onRestart();
 
         // Going back to Home Activity on Restarting this Activity
-        Intent i = new Intent(GenerateCertificateActivity.this, HomeActivity.class);
-        startActivity(i);
+        startActivity(new Intent(GenerateCertificateActivity.this, HomeActivity.class));
     }
 }

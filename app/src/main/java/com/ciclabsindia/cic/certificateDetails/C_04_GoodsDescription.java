@@ -113,121 +113,104 @@ public class C_04_GoodsDescription extends Fragment {
         if (marking_of_bag_byteArray!=null)
             bmp = BitmapFactory.decodeByteArray(marking_of_bag_byteArray, 0, marking_of_bag_byteArray.length);
 
-//        editText1.setText(description_of_goods);
-//        editText2.setText(contract_no);
-//        editText3.setText(invoice_no_pk);
-//        editText4.setText(place_of_inspection);
-//        editText5.setText(date_of_inspection);
-//        editText6.setText(port_of_discharge);
+        editText1.setText(description_of_goods);
+        editText2.setText(contract_no);
+        editText3.setText(invoice_no_pk);
+        editText4.setText(place_of_inspection);
+        editText5.setText(date_of_inspection);
+        editText6.setText(port_of_discharge);
         imageView.setImageBitmap(bmp);
 
-        editText5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new DatePickerDialog(getActivity(), listener, y, m, d).show();
-            }
+        editText5.setOnClickListener(v -> new DatePickerDialog(getActivity(), listener, y, m, d).show());
+
+        btn_upload.setOnClickListener(v -> {
+            Dialog dlg = new Dialog(getActivity());
+            dlg.setContentView(R.layout.custom_dialog_camera_gallery);
+            dlg.setCanceledOnTouchOutside(false);
+            dlg.show();
+
+            ImageButton btn_cam = dlg.findViewById(R.id.imageButton1);
+            ImageButton btn_gal = dlg.findViewById(R.id.imageButton2);
+
+            btn_cam.setOnClickListener(v1 -> {
+                // Opening Camera using Intent
+                Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                Uri imagePath = createImage();
+                i.putExtra(MediaStore.EXTRA_OUTPUT, imagePath);
+                startActivityForResult(i, 101);
+                dlg.dismiss();
+            });
+
+            btn_gal.setOnClickListener(v12 -> {
+                // Opening Gallery using Intent
+                Intent i = new Intent();
+                i.setType("image/*");
+                i.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(i, 102);
+                dlg.dismiss();
+            });
         });
 
-        btn_upload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Dialog dlg = new Dialog(getActivity());
-                dlg.setContentView(R.layout.custom_dialog_camera_gallery);
-                dlg.setCanceledOnTouchOutside(false);
-                dlg.show();
+        btn_next.setOnClickListener(v -> {
+            description_of_goods = editText1.getText().toString().toUpperCase();
+            contract_no = editText2.getText().toString().toUpperCase();
+            invoice_no_pk = editText3.getText().toString().toUpperCase();
+            place_of_inspection = editText4.getText().toString().toUpperCase();
+            date_of_inspection = editText5.getText().toString();
+            port_of_discharge = editText6.getText().toString().toUpperCase();
 
-                ImageButton btn_cam = dlg.findViewById(R.id.imageButton1);
-                ImageButton btn_gal = dlg.findViewById(R.id.imageButton2);
+            if (invoice_no_pk.isEmpty())
+                invoice_no_pk = String.valueOf(System.currentTimeMillis());
 
-                btn_cam.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // Opening Camera using Intent
-                        Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        Uri imagePath = createImage();
-                        i.putExtra(MediaStore.EXTRA_OUTPUT, imagePath);
-                        startActivityForResult(i, 101);
-                        dlg.dismiss();
-                    }
-                });
+            //##################### SENDING DATA TO NEXT FRAGMENT #####################
+            C_05_Quantity frg = new C_05_Quantity();
+            Bundle b1 = new Bundle();
+            b1.putString("certificate_no", certificate_no);
+            b1.putString("report_no", report_no);
+            b1.putString("date", date);
+            b1.putString("shipper_name", shipper_name);
+            b1.putString("shipper_address", shipper_address);
+            b1.putString("shipper_tel", shipper_tel);
+            b1.putString("shipper_fax", shipper_fax);
+            b1.putString("shipper_gst", shipper_gst);
+            b1.putString("notify_name", notify_name);
+            b1.putString("notify_address", notify_address);
+            b1.putString("notify_tel", notify_tel);
+            b1.putString("notify_fax", notify_fax);
+            b1.putString("description_of_goods", description_of_goods);
+            b1.putString("contract_no", contract_no);
+            b1.putString("invoice_no_pk", invoice_no_pk);
+            b1.putString("place_of_inspection", place_of_inspection);
+            b1.putString("date_of_inspection", date_of_inspection);
+            b1.putString("port_of_discharge", port_of_discharge);
+            b1.putByteArray("marking_of_bag_byteArray", marking_of_bag_byteArray);
+            b1.putString("total_no_of_bags", total_no_of_bags);
+            b1.putString("gross_weight", gross_weight);
+            b1.putString("tare_weight", tare_weight);
+            b1.putString("net_weight", net_weight);
+            b1.putString("cleanliness_statement", cleanliness_statement);
+            b1.putString("quality_statement", quality_statement);
+            b1.putString("packing", packing);
+            b1.putString("weight", weight);
+            b1.putString("conclusion", conclusion);
+            b1.putString("category", category);
+            b1.putString("check_parameter", check_parameter);
+            b1.putString("specification_in_parts", specification_in_parts);
+            b1.putString("specification", specification);
+            b1.putString("test_result", test_result);
+            b1.putString("extra_well_milled", extra_well_milled);
+            b1.putString("container_no",container_no );
+            b1.putString("container_size", container_size);
+            b1.putString("no_of_bags", no_of_bags);
+            b1.putString("condition", condition);
+            b1.putString("old_invoice_no", old_invoice_no);
+            frg.setArguments(b1);
 
-                btn_gal.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // Opening Gallery using Intent
-                        Intent i = new Intent();
-                        i.setType("image/*");
-                        i.setAction(Intent.ACTION_GET_CONTENT);
-                        startActivityForResult(i, 102);
-                        dlg.dismiss();
-                    }
-                });
-            }
-        });
-
-        btn_next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                description_of_goods = editText1.getText().toString().toUpperCase();
-                contract_no = editText2.getText().toString().toUpperCase();
-                invoice_no_pk = editText3.getText().toString().toUpperCase();
-                place_of_inspection = editText4.getText().toString().toUpperCase();
-                date_of_inspection = editText5.getText().toString();
-                port_of_discharge = editText6.getText().toString().toUpperCase();
-
-                if (invoice_no_pk.isEmpty())
-                    invoice_no_pk = String.valueOf(System.currentTimeMillis());
-
-                //##################### SENDING DATA TO NEXT FRAGMENT #####################
-                C_05_Quantity frg = new C_05_Quantity();
-                Bundle b = new Bundle();
-                b.putString("certificate_no", certificate_no);
-                b.putString("report_no", report_no);
-                b.putString("date", date);
-                b.putString("shipper_name", shipper_name);
-                b.putString("shipper_address", shipper_address);
-                b.putString("shipper_tel", shipper_tel);
-                b.putString("shipper_fax", shipper_fax);
-                b.putString("shipper_gst", shipper_gst);
-                b.putString("notify_name", notify_name);
-                b.putString("notify_address", notify_address);
-                b.putString("notify_tel", notify_tel);
-                b.putString("notify_fax", notify_fax);
-                b.putString("description_of_goods", description_of_goods);
-                b.putString("contract_no", contract_no);
-                b.putString("invoice_no_pk", invoice_no_pk);
-                b.putString("place_of_inspection", place_of_inspection);
-                b.putString("date_of_inspection", date_of_inspection);
-                b.putString("port_of_discharge", port_of_discharge);
-                b.putByteArray("marking_of_bag_byteArray", marking_of_bag_byteArray);
-                b.putString("total_no_of_bags", total_no_of_bags);
-                b.putString("gross_weight", gross_weight);
-                b.putString("tare_weight", tare_weight);
-                b.putString("net_weight", net_weight);
-                b.putString("cleanliness_statement", cleanliness_statement);
-                b.putString("quality_statement", quality_statement);
-                b.putString("packing", packing);
-                b.putString("weight", weight);
-                b.putString("conclusion", conclusion);
-                b.putString("category", category);
-                b.putString("check_parameter", check_parameter);
-                b.putString("specification_in_parts", specification_in_parts);
-                b.putString("specification", specification);
-                b.putString("test_result", test_result);
-                b.putString("extra_well_milled", extra_well_milled);
-                b.putString("container_no",container_no );
-                b.putString("container_size", container_size);
-                b.putString("no_of_bags", no_of_bags);
-                b.putString("condition", condition);
-                b.putString("old_invoice_no", old_invoice_no);
-                frg.setArguments(b);
-
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.certificateDetails, frg);
-                ft.addToBackStack("");
-                ft.commit();
-            }
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.certificateDetails, frg);
+            ft.addToBackStack("");
+            ft.commit();
         });
         return myView;
     }
@@ -235,7 +218,7 @@ public class C_04_GoodsDescription extends Fragment {
     DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-            editText5.setText(dayOfMonth + "-" + (month+1) + "-" + year);
+            editText5.setText(String.format("%d-%d-%d", dayOfMonth, month + 1, year));
             y = year;
             m = month;
             d = dayOfMonth;

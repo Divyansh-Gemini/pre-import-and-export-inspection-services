@@ -1,65 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:paddingVertical="20sp"
     android:layout_width="350sp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingVertical="20sp">
 
     <TextView
-        android:text="Open"
-        android:textSize="30sp"
-        android:fontFamily="@font/signika_medium"
-        android:layout_marginBottom="20sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp"
+        android:fontFamily="@font/signika_medium"
+        android:text="@string/open"
+        android:textSize="30sp" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/open_pdf"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginHorizontal="15sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15sp"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
-                android:background="@drawable/icon_pdf"
                 android:layout_width="130sp"
-                android:layout_height="130sp"/>
+                android:layout_height="130sp"
+                android:background="@drawable/icon_pdf"
+                android:contentDescription="@string/pdf" />
 
             <TextView
-                android:text="PDF"
-                android:textSize="20sp"
-                android:fontFamily="@font/signika_medium"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/signika_medium"
+                android:text="@string/pdf"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/open_excel"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginHorizontal="15sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15sp"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
-                android:background="@drawable/icon_excel"
                 android:layout_width="130sp"
-                android:layout_height="130sp"/>
+                android:layout_height="130sp"
+                android:background="@drawable/icon_excel"
+                android:contentDescription="@string/excel" />
 
             <TextView
-                android:text="Excel"
-                android:textSize="20sp"
-                android:fontFamily="@font/signika_medium"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/signika_medium"
+                android:text="@string/excel"
+                android:textSize="20sp" />
 
         </LinearLayout>
 

@@ -1,88 +1,91 @@
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/Widget.Material3.CardView.Elevated"
-    app:cardBackgroundColor="@color/white"
-    android:clickable="true"
-    android:focusable="true"
-    app:cardCornerRadius="15sp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginHorizontal="10sp"
     android:layout_marginVertical="10sp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="15sp">
 
     <LinearLayout
         android:id="@+id/card"
-        android:orientation="horizontal"
-        android:padding="7sp"
         android:layout_width="match_parent"
-        android:layout_height="140sp">
+        android:layout_height="140sp"
+        android:orientation="horizontal"
+        android:padding="7sp">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="100sp"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:contentDescription="@string/document_type" />
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_marginLeft="10sp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginStart="10sp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView1"
-                android:text="Invoice No."
-                android:textSize="20sp"
-                android:layout_marginTop="5sp"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:text="@string/invoice_no"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView2"
-                android:text="SHIPPER NAME"
-                android:textSize="15sp"
-                android:layout_marginTop="5sp"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:text="@string/shipper_name_uppercase"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/textView3"
-                android:text="Last edited: xx/xx/xxxx  xx:xx"
-                android:textSize="13sp"
-                android:layout_marginTop="5sp"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:text="@string/last_edited_xx_xx_xxxx_xx_xx"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
 
             <LinearLayout
-                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="end"
                 android:gravity="bottom"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:orientation="horizontal">
 
                 <ImageButton
                     android:id="@+id/button1"
-                    android:background="@drawable/icon_edit"
-                    android:layout_marginHorizontal="5sp"
                     android:layout_width="25sp"
-                    android:layout_height="25sp"/>
+                    android:layout_height="25sp"
+                    android:layout_marginHorizontal="5sp"
+                    android:background="@drawable/icon_edit"
+                    android:contentDescription="@string/edit" />
 
                 <ImageButton
                     android:id="@+id/button2"
-                    android:background="@drawable/icon_share"
-                    android:layout_marginHorizontal="5sp"
                     android:layout_width="25sp"
-                    android:layout_height="25sp"/>
+                    android:layout_height="25sp"
+                    android:layout_marginHorizontal="5sp"
+                    android:background="@drawable/icon_share"
+                    android:contentDescription="@string/share" />
 
                 <ImageButton
                     android:id="@+id/button3"
-                    android:background="@drawable/icon_more"
-                    android:layout_marginHorizontal="5sp"
                     android:layout_width="25sp"
-                    android:layout_height="25sp"/>
+                    android:layout_height="25sp"
+                    android:layout_marginHorizontal="5sp"
+                    android:background="@drawable/icon_more"
+                    android:contentDescription="@string/more" />
 
             </LinearLayout>
 

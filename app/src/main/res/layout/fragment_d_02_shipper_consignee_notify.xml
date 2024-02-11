@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/bg_shipper_consignee_notify"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_shipper_consignee_notify"
     tools:context=".draftDetails.D_02_ShipperConsigneeNotify">
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:endIconMode="clear_text"
         android:layout_width="300sp"
         android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,15 +21,15 @@
             android:id="@+id/editText1"
             android:layout_width="300sp"
             android:layout_height="wrap_content"
-            android:hint="Shipper Name"
+            android:hint="@string/shipper_name_lowercase"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:endIconMode="clear_text"
         android:layout_width="300sp"
         android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,15 +39,15 @@
             android:id="@+id/editText2"
             android:layout_width="300sp"
             android:layout_height="wrap_content"
-            android:hint="Shipper Address"
+            android:hint="@string/shipper_address"
             android:inputType="textPostalAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:endIconMode="clear_text"
         android:layout_width="300sp"
         android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,15 +57,15 @@
             android:id="@+id/editText3"
             android:layout_width="300sp"
             android:layout_height="wrap_content"
-            android:hint="Consignee Name"
+            android:hint="@string/consignee_name"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:endIconMode="clear_text"
         android:layout_width="300sp"
         android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,15 +75,15 @@
             android:id="@+id/editText4"
             android:layout_width="300sp"
             android:layout_height="wrap_content"
-            android:hint="Consignee Address"
-            android:inputType="textPostalAddress"/>
+            android:hint="@string/consignee_address"
+            android:inputType="textPostalAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:endIconMode="clear_text"
         android:layout_width="300sp"
         android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,15 +93,15 @@
             android:id="@+id/editText5"
             android:layout_width="300sp"
             android:layout_height="wrap_content"
-            android:hint="Notify Name"
+            android:hint="@string/notify_name"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:endIconMode="clear_text"
         android:layout_width="300sp"
         android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,18 +111,18 @@
             android:id="@+id/editText6"
             android:layout_width="300sp"
             android:layout_height="wrap_content"
-            android:hint="Notify Address"
+            android:hint="@string/notify_address"
             android:inputType="textPostalAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/buttonNext"
-        android:text="Next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="15sp"
+        android:layout_marginEnd="15sp"
         android:layout_marginBottom="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,21 +3,22 @@ package com.ciclabsindia.cic.database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.CursorWindow;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import com.ciclabsindia.cic.model.Certificate;
 import com.ciclabsindia.cic.model.Container;
 import com.ciclabsindia.cic.model.Document;
 import com.ciclabsindia.cic.model.Draft;
 import com.ciclabsindia.cic.model.QualityCheck;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHandler extends SQLiteOpenHelper
 {
+    public static final String TAG = "CIC Labs India";
     public static final int VERSION_CODE = 1;
     public static final String DB_NAME = "cic";
 
@@ -427,7 +428,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
     public List<Document> getAllDocuments ()
     {
         SQLiteDatabase db = getReadableDatabase();
-        ArrayList<Document> list = new ArrayList<Document>();
+        ArrayList<Document> list = new ArrayList<>();
 //        String query = "SELECT * FROM " + TABLE_DOCUMENT;
         String query = "SELECT * FROM " + TABLE_DOCUMENT + " ORDER BY " + LAST_EDITED_DATE_TIME_FK + " DESC, " + INVOICE_NO_FK + " DESC;";
         Cursor cursor = db.rawQuery(query, null);
@@ -447,8 +448,9 @@ public class DatabaseHandler extends SQLiteOpenHelper
 
     //######################################## READ SINGLE CERTIFICATE ##################################
     public List<Document> getSearchedDocuments (String newText) {
+        Log.i(TAG, String.format("getSearchedDocuments(%s)", newText));
         SQLiteDatabase db = getReadableDatabase();
-        ArrayList<Document> list = new ArrayList<Document>();
+        ArrayList<Document> list = new ArrayList<>();
 
         String query = "SELECT * FROM " + TABLE_DOCUMENT + " WHERE (" + DOC_TYPE + " LIKE '%" + newText + "%' OR " +
                 INVOICE_NO_FK + " LIKE '%" + newText + "%' OR " + SHIPPER_NAME_FK + " LIKE '%" + newText + "%')";

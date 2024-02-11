@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/bg_signin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_signin"
     tools:context=".SignInActivity">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="Enter Email Address"
+            android:hint="@string/enter_email_address"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -44,21 +44,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="Enter Password"
+            android:hint="@string/enter_password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <!--    <CheckBox-->
-    <!--        android:id="@+id/checkBoxRememberMe"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="Remember me"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.200"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.475" />-->
 
     <Button
         android:id="@+id/buttonSignIn"
@@ -69,7 +57,7 @@
         android:fontFamily="@font/signika_medium"
         android:paddingHorizontal="25sp"
         android:paddingBottom="10sp"
-        android:text="Sign In"
+        android:text="@string/sign_in"
         android:textAllCaps="false"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,13 +66,13 @@
 
     <TextView
         android:id="@+id/textViewSkip"
-        android:text="Skip"
-        android:textSize="30sp"
-        android:textColor="@color/blue"
-        android:fontFamily="@font/signika_medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="70sp"
+        android:fontFamily="@font/signika_medium"
+        android:text="@string/skip"
+        android:textColor="@color/blue"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

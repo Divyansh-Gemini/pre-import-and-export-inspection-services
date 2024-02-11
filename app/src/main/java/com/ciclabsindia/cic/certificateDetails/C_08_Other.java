@@ -1,13 +1,10 @@
 package com.ciclabsindia.cic.certificateDetails;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +20,6 @@ import com.ciclabsindia.cic.model.Container;
 import com.ciclabsindia.cic.model.Document;
 import com.ciclabsindia.cic.model.QualityCheck;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.Calendar;
 
 public class C_08_Other extends Fragment {
@@ -93,86 +88,83 @@ public class C_08_Other extends Fragment {
         condition = b.getString("condition");
         old_invoice_no = b.getString("old_invoice_no");
 
-//        editText1.setText(cleanliness_statement);
-//        editText2.setText(quality_statement);
-//        editText3.setText(packing);
-//        editText4.setText(weight);
-//        editText5.setText(conclusion);
+        editText1.setText(cleanliness_statement);
+        editText2.setText(quality_statement);
+        editText3.setText(packing);
+        editText4.setText(weight);
+        editText5.setText(conclusion);
 
-        btn_submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cleanliness_statement = editText1.getText().toString().toUpperCase();
-                quality_statement = editText2.getText().toString().toUpperCase();
-                packing = editText3.getText().toString().toUpperCase();
-                weight = editText4.getText().toString().toUpperCase();
-                conclusion = editText5.getText().toString().toUpperCase();
+        btn_submit.setOnClickListener(v -> {
+            cleanliness_statement = editText1.getText().toString().toUpperCase();
+            quality_statement = editText2.getText().toString().toUpperCase();
+            packing = editText3.getText().toString().toUpperCase();
+            weight = editText4.getText().toString().toUpperCase();
+            conclusion = editText5.getText().toString().toUpperCase();
 
-                //##################### SETTING THE CURRENT DATE-TIME AS "LAST_EDITED_DATE_TIME #####################
-                Calendar ca = Calendar.getInstance();
-                int yyyy = ca.get(Calendar.YEAR);
-                int mth = ca.get(Calendar.MONTH)+1;
-                int dt = ca.get(Calendar.DATE);
-                int hour = ca.get(Calendar.HOUR);
-                int mts = ca.get(Calendar.MINUTE);
+            //##################### SETTING THE CURRENT DATE-TIME AS "LAST_EDITED_DATE_TIME #####################
+            Calendar ca = Calendar.getInstance();
+            int yyyy = ca.get(Calendar.YEAR);
+            int mth = ca.get(Calendar.MONTH)+1;
+            int dt = ca.get(Calendar.DATE);
+            int hour = ca.get(Calendar.HOUR);
+            int mts = ca.get(Calendar.MINUTE);
 
-                // Formatting month, date, and minutes
-                String mm, dd, minutes;
-                if (mth<10) mm = "0" + mth;
-                else        mm = "" + mth;
-                if (dt<10)  dd = "0" + dt;
-                else        dd = "" + dt;
-                if (mts<10) minutes = "0" + mts;
-                else        minutes = "" + mts;
-                last_edited_date_time = yyyy + "-" + mm + "-" + dd + "  " + hour + ":" + minutes;
+            // Formatting month, date, and minutes
+            String mm, dd, minutes;
+            if (mth<10) mm = "0" + mth;
+            else        mm = String.valueOf(mth);
+            if (dt<10)  dd = "0" + dt;
+            else        dd = String.valueOf(dt);
+            if (mts<10) minutes = "0" + mts;
+            else        minutes = String.valueOf(mts);
+            last_edited_date_time = yyyy + "-" + mm + "-" + dd + "  " + hour + ":" + minutes;
 
 
-                //##################### UPDATING DATA IN CERTIFICATE TABLE #####################
-                Certificate certificate = new Certificate(certificate_no, report_no, date, shipper_name,
-                        shipper_address, shipper_tel, shipper_fax, shipper_gst, notify_name, notify_address,
-                        notify_tel, notify_fax, description_of_goods, contract_no, invoice_no_pk, place_of_inspection,
-                        date_of_inspection, port_of_discharge, marking_of_bag_byteArray, total_no_of_bags, gross_weight,
-                        tare_weight, net_weight, cleanliness_statement, quality_statement, packing, weight, conclusion, last_edited_date_time);
-                long certificateResult = handler.updateCertificate(certificate, old_invoice_no);
-                if (certificateResult > 0);
-                    //Toast.makeText(getActivity(), "Certificate updated!!", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getActivity(), "Certificate Query problem!!", Toast.LENGTH_SHORT).show();
+            //##################### UPDATING DATA IN CERTIFICATE TABLE #####################
+            Certificate certificate = new Certificate(certificate_no, report_no, date, shipper_name,
+                    shipper_address, shipper_tel, shipper_fax, shipper_gst, notify_name, notify_address,
+                    notify_tel, notify_fax, description_of_goods, contract_no, invoice_no_pk, place_of_inspection,
+                    date_of_inspection, port_of_discharge, marking_of_bag_byteArray, total_no_of_bags, gross_weight,
+                    tare_weight, net_weight, cleanliness_statement, quality_statement, packing, weight, conclusion, last_edited_date_time);
+            long certificateResult = handler.updateCertificate(certificate, old_invoice_no);
+            if (certificateResult > 0);
+                //Toast.makeText(getActivity(), "Certificate updated!!", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getActivity(), "Certificate Query problem!!", Toast.LENGTH_SHORT).show();
 
 
-                //##################### UPDATING DATA IN CONTAINER TABLE #####################
-                Container container = new Container(container_no, container_size, no_of_bags, condition, invoice_no_pk);
-                long containerResult = handler.updateContainer(container, old_invoice_no);
-                if (containerResult > 0);
-                    //Toast.makeText(getActivity(), "Container updated!!", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getActivity(), "Container Query problem!!", Toast.LENGTH_SHORT).show();
+            //##################### UPDATING DATA IN CONTAINER TABLE #####################
+            Container container1 = new Container(container_no, container_size, no_of_bags, condition, invoice_no_pk);
+            long containerResult = handler.updateContainer(container1, old_invoice_no);
+            if (containerResult > 0);
+                //Toast.makeText(getActivity(), "Container updated!!", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getActivity(), "Container Query problem!!", Toast.LENGTH_SHORT).show();
 
 
-                //##################### UPDATING DATA IN QUALITY CHECK TABLE #####################
-                QualityCheck qualityCheck = new QualityCheck(category, check_parameter, specification_in_parts,
-                        specification, test_result, extra_well_milled, invoice_no_pk);
-                long qualityResult = handler.updateQualityCheck(qualityCheck, old_invoice_no);
-                if (qualityResult > 0);
-                    //Toast.makeText(getActivity(), "QualityCheck updated!!", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getActivity(), "Quality Query problem!!", Toast.LENGTH_SHORT).show();
+            //##################### UPDATING DATA IN QUALITY CHECK TABLE #####################
+            QualityCheck qualityCheck = new QualityCheck(category, check_parameter, specification_in_parts,
+                    specification, test_result, extra_well_milled, invoice_no_pk);
+            long qualityResult = handler.updateQualityCheck(qualityCheck, old_invoice_no);
+            if (qualityResult > 0);
+                //Toast.makeText(getActivity(), "QualityCheck updated!!", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getActivity(), "Quality Query problem!!", Toast.LENGTH_SHORT).show();
 
 
-                //##################### UPDATING DATA IN DOCUMENT TABLE #####################
-                Document document = new Document("C_" + invoice_no_pk, "certificate", shipper_name, invoice_no_pk, last_edited_date_time);
-                long documentResult = handler.updateDocument(document, old_invoice_no);
-                if (documentResult > 0);
-                    //Toast.makeText(getActivity(), "Document updated!!", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getActivity(), "Document Query problem!!", Toast.LENGTH_SHORT).show();
+            //##################### UPDATING DATA IN DOCUMENT TABLE #####################
+            Document document = new Document("C_" + invoice_no_pk, "certificate", shipper_name, invoice_no_pk, last_edited_date_time);
+            long documentResult = handler.updateDocument(document, old_invoice_no);
+            if (documentResult > 0);
+                //Toast.makeText(getActivity(), "Document updated!!", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getActivity(), "Document Query problem!!", Toast.LENGTH_SHORT).show();
 
 
-                //##################### SENDING INVOICE NO. TO PDF GENERATOR #####################
-                Intent i = new Intent(getActivity(), GenerateCertificateActivity.class);
-                i.putExtra("invoice_no", invoice_no_pk);
-                startActivity(i);
-            }
+            //##################### SENDING INVOICE NO. TO PDF GENERATOR #####################
+            Intent i = new Intent(getActivity(), GenerateCertificateActivity.class);
+            i.putExtra("invoice_no", invoice_no_pk);
+            startActivity(i);
         });
         return myView;
     }

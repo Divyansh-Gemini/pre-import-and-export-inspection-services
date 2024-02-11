@@ -18,7 +18,6 @@ import com.ciclabsindia.cic.R;
 import com.ciclabsindia.cic.database.DatabaseHandler;
 import com.ciclabsindia.cic.model.Certificate;
 import com.ciclabsindia.cic.model.Container;
-import com.ciclabsindia.cic.model.Draft;
 import com.ciclabsindia.cic.model.QualityCheck;
 
 import java.util.Calendar;
@@ -109,73 +108,65 @@ public class C_01_CertificateInfo extends Fragment {
             condition = cn.getCondition();
         }
 
-//        editText1.setText(certificate_no);
-//        editText2.setText(report_no);
-//        editText3.setText(date);
+        editText1.setText(certificate_no);
+        editText2.setText(report_no);
+        editText3.setText(date);
 
-        editText3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new DatePickerDialog(getActivity(), listener, yyyy, mm, dd).show();
-            }
-        });
+        editText3.setOnClickListener(v -> new DatePickerDialog(getActivity(), listener, yyyy, mm, dd).show());
 
-        btn_next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                certificate_no = editText1.getText().toString().toUpperCase();
-                report_no = editText2.getText().toString().toUpperCase();
-                date = editText3.getText().toString();
+        btn_next.setOnClickListener(v -> {
+            certificate_no = editText1.getText().toString().toUpperCase();
+            report_no = editText2.getText().toString().toUpperCase();
+            date = editText3.getText().toString();
 
-                //##################### SENDING DATA TO NEXT FRAGMENT #####################
-                C_02_Shipper frg = new C_02_Shipper();
-                Bundle b = new Bundle();
-                b.putString("certificate_no", certificate_no);
-                b.putString("report_no", report_no);
-                b.putString("date", date);
-                b.putString("shipper_name", shipper_name);
-                b.putString("shipper_address", shipper_address);
-                b.putString("shipper_tel", shipper_tel);
-                b.putString("shipper_fax", shipper_fax);
-                b.putString("shipper_gst", shipper_gst);
-                b.putString("notify_name", notify_name);
-                b.putString("notify_address", notify_address);
-                b.putString("notify_tel", notify_tel);
-                b.putString("notify_fax", notify_fax);
-                b.putString("description_of_goods", description_of_goods);
-                b.putString("contract_no", contract_no);
-                b.putString("invoice_no_pk", invoice_no_pk);
-                b.putString("place_of_inspection", place_of_inspection);
-                b.putString("date_of_inspection", date_of_inspection);
-                b.putString("port_of_discharge", port_of_discharge);
-                b.putByteArray("marking_of_bag_byteArray", marking_of_bag_byteArray);
-                b.putString("total_no_of_bags", total_no_of_bags);
-                b.putString("gross_weight", gross_weight);
-                b.putString("tare_weight", tare_weight);
-                b.putString("net_weight", net_weight);
-                b.putString("cleanliness_statement", cleanliness_statement);
-                b.putString("quality_statement", quality_statement);
-                b.putString("packing", packing);
-                b.putString("weight", weight);
-                b.putString("conclusion", conclusion);
-                b.putString("category", category);
-                b.putString("check_parameter", check_parameter);
-                b.putString("specification_in_parts", specification_in_parts);
-                b.putString("specification", specification);
-                b.putString("test_result", test_result);
-                b.putString("extra_well_milled", extra_well_milled);
-                b.putString("container_no", container_no);
-                b.putString("container_size", container_size);
-                b.putString("no_of_bags", no_of_bags);
-                b.putString("condition", condition);
-                frg.setArguments(b);
+            //##################### SENDING DATA TO NEXT FRAGMENT #####################
+            C_02_Shipper frg = new C_02_Shipper();
+            Bundle b1 = new Bundle();
+            b1.putString("certificate_no", certificate_no);
+            b1.putString("report_no", report_no);
+            b1.putString("date", date);
+            b1.putString("shipper_name", shipper_name);
+            b1.putString("shipper_address", shipper_address);
+            b1.putString("shipper_tel", shipper_tel);
+            b1.putString("shipper_fax", shipper_fax);
+            b1.putString("shipper_gst", shipper_gst);
+            b1.putString("notify_name", notify_name);
+            b1.putString("notify_address", notify_address);
+            b1.putString("notify_tel", notify_tel);
+            b1.putString("notify_fax", notify_fax);
+            b1.putString("description_of_goods", description_of_goods);
+            b1.putString("contract_no", contract_no);
+            b1.putString("invoice_no_pk", invoice_no_pk);
+            b1.putString("place_of_inspection", place_of_inspection);
+            b1.putString("date_of_inspection", date_of_inspection);
+            b1.putString("port_of_discharge", port_of_discharge);
+            b1.putByteArray("marking_of_bag_byteArray", marking_of_bag_byteArray);
+            b1.putString("total_no_of_bags", total_no_of_bags);
+            b1.putString("gross_weight", gross_weight);
+            b1.putString("tare_weight", tare_weight);
+            b1.putString("net_weight", net_weight);
+            b1.putString("cleanliness_statement", cleanliness_statement);
+            b1.putString("quality_statement", quality_statement);
+            b1.putString("packing", packing);
+            b1.putString("weight", weight);
+            b1.putString("conclusion", conclusion);
+            b1.putString("category", category);
+            b1.putString("check_parameter", check_parameter);
+            b1.putString("specification_in_parts", specification_in_parts);
+            b1.putString("specification", specification);
+            b1.putString("test_result", test_result);
+            b1.putString("extra_well_milled", extra_well_milled);
+            b1.putString("container_no", container_no);
+            b1.putString("container_size", container_size);
+            b1.putString("no_of_bags", no_of_bags);
+            b1.putString("condition", condition);
+            frg.setArguments(b1);
 
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.certificateDetails, frg);
-                ft.addToBackStack("");
-                ft.commit();
-            }
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.certificateDetails, frg);
+            ft.addToBackStack("");
+            ft.commit();
         });
         return myView;
     }
@@ -183,7 +174,7 @@ public class C_01_CertificateInfo extends Fragment {
     DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-            editText3.setText(dayOfMonth + "-" + (month+1) + "-" + year);
+            editText3.setText(String.format("%d-%d-%d", dayOfMonth, month + 1, year));
             yyyy = year;
             mm = month;
             dd = dayOfMonth;

@@ -3,10 +3,10 @@
 
     <item
         android:id="@+id/item1"
-        android:title="Share PDF"/>
+        android:title="@string/share_pdf"/>
 
     <item
         android:id="@+id/item2"
-        android:title="Share Excel"/>
+        android:title="@string/share_excel"/>
 
 </menu>

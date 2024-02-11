@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="200sp"
         android:fontFamily="@font/signika_medium"
-        android:text="Excel successfully created in"
+        android:text="@string/excel_successfully_created_in"
         android:textAlignment="center"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,11 +20,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:text="Internal Storage --> Documents folder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/signika_medium"
+        android:text="@string/internal_storage_documents_folder"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

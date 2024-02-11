@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity"
+    android:background="@color/light_grey_1"
     android:theme="@style/Theme.CICLabsIndia.light"
-    android:background="@color/light_grey_1">
+    tools:context=".HomeActivity">
 
     <ImageView
         android:id="@+id/imageView"
+        android:layout_width="300sp"
+        android:layout_height="300sp"
+        android:layout_gravity="center"
+        android:importantForAccessibility="no"
         android:src="@drawable/image_no_document"
         android:visibility="invisible"
-        android:layout_height="300sp"
-        android:layout_width="300sp"
-        android:layout_gravity="center"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerViewRecent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="200sp"
         android:background="@drawable/recent"
+        android:importantForAccessibility="no"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -46,9 +48,9 @@
         app:layout_behavior="@string/bottom_sheet_behavior">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout"
@@ -77,39 +79,40 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewHistory"
-                android:layout_marginTop="10sp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp" />
 
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_gravity="end|bottom"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom">
 
         <ImageView
             android:id="@+id/shape"
-            android:scaleType="fitXY"
             android:layout_width="245sp"
             android:layout_height="160sp"
             android:layout_marginBottom="70sp"
+            android:importantForAccessibility="no"
+            android:scaleType="fitXY"
             android:src="@drawable/shape_behind_fab"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/new_draft_text"
-            android:text="New Draft"
-            android:textColor="@color/black"
-            android:background="@drawable/bg_fab_text"
-            android:paddingVertical="5sp"
-            android:paddingHorizontal="15sp"
-            android:layout_marginEnd="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="20sp"
+            android:background="@drawable/bg_fab_text"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="5sp"
+            android:text="@string/new_draft"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/new_draft_fab"
             app:layout_constraintEnd_toStartOf="@+id/new_draft_fab"
             app:layout_constraintTop_toTopOf="@+id/new_draft_fab" />
@@ -120,7 +123,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:layout_marginEnd="16dp"
-            android:contentDescription="New Draft"
+            android:backgroundTint="@color/blue"
+            android:contentDescription="@string/new_draft"
             android:src="@drawable/icon_draft"
             app:layout_constraintBottom_toTopOf="@+id/new_certificate_fab"
             app:layout_constraintEnd_toEndOf="parent"
@@ -130,11 +134,11 @@
             android:id="@+id/new_certificate_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="20sp"
             android:background="@drawable/bg_fab_text"
             android:paddingHorizontal="15sp"
             android:paddingVertical="5sp"
-            android:text="New Certificate"
-            android:layout_marginEnd="20sp"
+            android:text="@string/new_certificate"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/new_certificate_fab"
             app:layout_constraintEnd_toStartOf="@+id/new_certificate_fab"
@@ -145,27 +149,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:backgroundTint="@color/blue"
+            android:contentDescription="@string/new_certificate"
             android:src="@drawable/icon_certificate"
             app:layout_constraintBottom_toTopOf="@+id/new_doc_fab"
             app:layout_constraintEnd_toEndOf="parent"
-            app:tint="@color/white"
-            android:contentDescription="New Certificate" />
+            app:tint="@color/white" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/new_doc_fab"
             style="@style/Widget.Material3.FloatingActionButton.Primary"
-            android:backgroundTint="@color/blue"
-            android:text="New Doc"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            app:icon="@drawable/icon_new"
-            app:iconTint="@color/white"
-            app:iconSize="30sp"
-            app:collapsedSize="55sp"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/blue"
+            android:text="@string/new_doc"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:collapsedSize="55sp"
+            app:icon="@drawable/icon_new"
+            app:iconSize="30sp"
+            app:iconTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

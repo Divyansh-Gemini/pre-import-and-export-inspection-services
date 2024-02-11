@@ -1,16 +1,12 @@
 package com.ciclabsindia.cic;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -39,22 +35,20 @@ public class SignInActivity extends AppCompatActivity {
         skip = findViewById(R.id.textViewSkip);
 //        auth = FirebaseAuth.getInstance();
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = editText1.getText().toString();
-                String password = editText2.getText().toString();
+        btn.setOnClickListener(v -> {
+            String email = editText1.getText().toString();
+            String password = editText2.getText().toString();
 
-                if (email.isEmpty()){
-                    til2.setError(null);
-                    til1.setError("Enter Email Address");}
-                else if (password.isEmpty()) {
-                    til1.setError(null);
-                    til2.setError("Enter Password");}
-                else
-                {
-                    til1.setError(null);
-                    til2.setError(null);
+            if (email.isEmpty()){
+                til2.setError(null);
+                til1.setError("Enter Email Address");}
+            else if (password.isEmpty()) {
+                til1.setError(null);
+                til2.setError("Enter Password");}
+            else
+            {
+                til1.setError(null);
+                til2.setError(null);
 //                    auth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
 //                        @Override
 //                        public void onSuccess(AuthResult authResult) {
@@ -68,16 +62,9 @@ public class SignInActivity extends AppCompatActivity {
 //                            Toast.makeText(SignInActivity.this, "Login Failed!!", Toast.LENGTH_SHORT).show();
 //                        }
 //                    });
-                }
             }
         });
 
-        skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(SignInActivity.this, UploadActivity.class);
-                startActivity(i);
-            }
-        });
+        skip.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, UploadActivity.class)));
     }
 }

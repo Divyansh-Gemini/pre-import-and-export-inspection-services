@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.ciclabsindia.cic.draftDetails.D_01_DraftInfo;
-import com.ciclabsindia.cic.draftDetails.D_02_ShipperConsigneeNotify;
 
 public class DraftDetailsActivity extends AppCompatActivity {
 

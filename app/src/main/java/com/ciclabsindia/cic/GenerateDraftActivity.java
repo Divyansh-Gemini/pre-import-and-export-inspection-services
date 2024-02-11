@@ -10,7 +10,6 @@ import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.widget.Toast;
 
 import com.ciclabsindia.cic.database.DatabaseHandler;
@@ -170,7 +169,6 @@ public class GenerateDraftActivity extends AppCompatActivity {
         super.onRestart();
 
         // Going back to Home Activity on Restarting this Activity
-        Intent i = new Intent(GenerateDraftActivity.this, HomeActivity.class);
-        startActivity(i);
+        startActivity(new Intent(GenerateDraftActivity.this, HomeActivity.class));
     }
 }
