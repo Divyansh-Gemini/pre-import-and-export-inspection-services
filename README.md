@@ -9,7 +9,7 @@ Android mobile app for an inspection company to automate the manual task of gene
 - And generates the PDF & Excel of the draft of Inspection Certificate.
 - User can also search documents by Invoice No. and Shipper Name.
 
-## Technologies used
+## Tech Stack
 
 - Java
 - Python
