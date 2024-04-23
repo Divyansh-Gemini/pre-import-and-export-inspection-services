@@ -14,12 +14,12 @@ Android mobile app for an inspection company to automate the manual task of gene
 - Java
 - Python
 - XML
-- SQLite
+- SQLite Database
 - Android Studio
 
 <p align="center">
     <a href="https://www.divyanshgemini.dev/">
-        <img src="https://skillicons.dev/icons?i=androidstudio,java,python,sqlite,androidstudio" alt="tech stack" />
+        <img src="https://skillicons.dev/icons?i=androidstudio,java,python,sqlite" alt="tech stack" />
     </a>
 </p>
 
