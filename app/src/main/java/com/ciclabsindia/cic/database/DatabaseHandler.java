@@ -425,8 +425,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
     }
 
     //############################## READ ALL DOCUMENTS ##############################
-    public List<Document> getAllDocuments ()
-    {
+    public List<Document> getAllDocuments () {
         SQLiteDatabase db = getReadableDatabase();
         ArrayList<Document> list = new ArrayList<>();
 //        String query = "SELECT * FROM " + TABLE_DOCUMENT;
